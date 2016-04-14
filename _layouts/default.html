@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        {{ content }}
+        {% for category in site.category_names %}
+          <h2> {{ category }} </h2>
+          {% for page in site.pages %}
+            {% if page.category == category %}
+            <div>
+              <a href="{{ page.url }}">
+                <span class='title'>{{ page.title }}</span>
+              </a>
+            </div>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
